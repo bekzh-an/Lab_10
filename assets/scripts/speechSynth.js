@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   setTimeout(() => populateVoices(), 50);
   bindListeners();
+  bindRateSlider();
 }
 
 function populateVoices() {
@@ -17,7 +18,7 @@ function populateVoices() {
     const option = document.createElement('option');
     option.innerHTML = `${voice.name} (${voice.lang})`;
     option.setAttribute('value', `${voice.name} (${voice.lang})`);
-    option.setAttribute('data-index', voiceSelect.children.length - 1)
+    option.setAttribute('data-index', voiceSelect.children.length - 1);
     voiceSelect.appendChild(option);
   });
 }
@@ -30,9 +31,25 @@ function bindListeners() {
     let textToSpeak = textarea.value;
     let utterThis = new SpeechSynthesisUtterance(textToSpeak);
     utterThis.voice = voices[getOptionIndex()];
+
+    // Apply speech rate from slider
+    const rateSlider = document.querySelector('#rate');
+    utterThis.rate = rateSlider ? parseFloat(rateSlider.value) : 1;
+
     synth.speak(utterThis);
     openMouth();
-  })
+  });
+}
+
+// Updates the rate label display as slider moves
+function bindRateSlider() {
+  const rateSlider = document.querySelector('#rate');
+  const rateLabel = document.querySelector('#rate-label');
+  if (!rateSlider || !rateLabel) return;
+
+  rateSlider.addEventListener('input', () => {
+    rateLabel.textContent = `${parseFloat(rateSlider.value).toFixed(1)}x`;
+  });
 }
 
 function getOptionIndex() {
