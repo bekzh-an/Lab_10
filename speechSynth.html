@@ -2,6 +2,23 @@
 <html lang="en">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PPDV3WGP');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2VEWKCXDY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y2VEWKCXDY');
+  </script>
+
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +31,11 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPDV3WGP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header>
     <nav>
       <a href="index.html" title="Go to party horn">Party Horn</a>
@@ -29,13 +51,6 @@
       <select name="voice" id="voice-select">
         <option value="select" disabled selected>Select Voice:</option>
       </select>
-
-      <!-- Speech Rate Slider (Feature Request: "Speech Rate Control") -->
-      <div id="rate-controls">
-        <label for="rate">S peech Rate: <span id="rate-label">1x</span></label>
-        <input type="range" id="rate" name="rate" min="0.5" max="2" step="0.1" value="1" />
-      </div>
-
       <button>Press to Talk</button>
     </section>
   </main>
